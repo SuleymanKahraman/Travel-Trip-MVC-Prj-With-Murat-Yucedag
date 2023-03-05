@@ -1,0 +1,26 @@
+﻿@using TravelTripProje.Models.Classes
+@model List<Blog>
+
+
+<div class="con-bot">
+    @foreach (var item in Model.OrderBy(x => x.Id).Take(2).ToList())
+    {
+        <div class="left">
+            <div class="bot-left">
+                <img src="@item.BlogImage" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>@item.Title</h4>
+                <span class="date">@item.Date.ToString("dd.MMMM.yyyy")</span>
+                <p>@item.Explanation.Substring(0,80)</p>
+                <p><a href="/Blog/BlogDetail/@item.Id"><span class="read">Devamı >></span></a></p>
+            </div>
+        </div>
+    }
+    <!--Partial View-->
+
+    <div class="right">
+        <partial name="Partial2" />
+    </div>
+
+</div>

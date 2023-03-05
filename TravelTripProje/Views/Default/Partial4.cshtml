@@ -1,0 +1,34 @@
+﻿@using TravelTripProje.Models.Classes
+@model List<Blog>
+
+
+<div class="padding1">
+    <h4>Our Best Places</h4>
+
+    <div class="box-left">
+        @foreach (var item in Model.Take(3).ToList())
+        {
+            <div class="bot-img">
+                <img src="@item.BlogImage" style=" width:120px; height:65px" alt="" />
+            </div>
+            <div class="bot-desc">
+                <p>@item.Explanation.Substring(0,50)</p>
+            </div>
+            <div class="clear"></div>
+        }
+
+
+    </div>
+    <div class="box1-left">
+        @foreach (var item in Model.OrderByDescending(x=>x.Id).Take(3).ToList())
+        {
+            <div class="bot-img">
+                <img src="@item.BlogImage" style=" width:120px; height:65px" alt="" />
+            </div>
+            <div class="bot-desc">
+                <p>@item.Explanation</p>
+            </div>
+            <div class="clear"></div>
+        }
+    </div>
+</div>

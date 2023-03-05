@@ -21,7 +21,7 @@ namespace TravelTripProje.Controllers
         }
         public IActionResult BlogDetail(int Id)
         {
-            //var blogbul = context.Blogs.Where(x => x.Id == Id).ToList();
+            //Blog Tablosundaki ilgili Id'ye ait tüm satırları liste halinde getirir. Böylece bizde link verdiğimizde "/Blog/BlogDetail/@item.Id" Db'den çekilmiş olan listeye gideriz. Aynı durum yorumlar içinde geçerlidir. 
             By.BlogValues = context.Blogs.Where(x => x.Id == Id).ToList();
             By.YorumValues = context.Yorumlars.Where(x => x.BlogId == Id).ToList();
             return View(By);
